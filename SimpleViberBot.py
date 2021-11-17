@@ -18,7 +18,6 @@ viber = Api(BotConfiguration(
     avatar='http://site.com/avatar.jpg',
     auth_token='445da6az1s345z78-dazcczb2542zv51a-e0vc5fva17480im9'
 ))
-viber.set_webhook('https://vibersimplebot.herokuapp.com/')
 
 @app.route('/', methods=['POST'])
 def incoming():
@@ -47,5 +46,10 @@ def incoming():
 
 @app.route('/',  methods=['GET'])
 def IncomingGet():
-    return "Регистрация бота прошла успешно"
+    try:
+        viber.unset_webhook()
+        viber.set_webhook(request.url)
+        return "Регистрация бота прошла успешно"
+    except Exception as e:
+        return e
 
