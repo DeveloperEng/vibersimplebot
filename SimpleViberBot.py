@@ -44,5 +44,7 @@ def incoming():
         logger.warn("client failed receiving message. failure: {0}".format(viber_request))
 
     return Response(status=200)
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=443, debug=True)
 
 
