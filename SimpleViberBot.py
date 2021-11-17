@@ -54,3 +54,6 @@ def IncomingGet():
         return e
     finally:
         return "All bad"
+@app.route('/',  methods=['POST'])
+def IncomingPOST():
+        return "Регистрация бота прошла успешно"
