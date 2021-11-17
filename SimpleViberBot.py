@@ -1,59 +1,48 @@
-from flask import Flask, request, Response
+import os
+import time
+import random
+import datetime
 from viberbot import Api
 from viberbot.api.bot_configuration import BotConfiguration
 from viberbot.api.messages import VideoMessage
+from viberbot.api.messages.picture_message import PictureMessage
 from viberbot.api.messages.text_message import TextMessage
+from viberbot.api.messages.keyboard_message import KeyboardMessage
+from viberbot.api.messages.rich_media_message import RichMediaMessage
+import requests
 import logging
-
+from flask import Flask, request, Response
+import psycopg2
 from viberbot.api.viber_requests import ViberConversationStartedRequest
 from viberbot.api.viber_requests import ViberFailedRequest
 from viberbot.api.viber_requests import ViberMessageRequest
 from viberbot.api.viber_requests import ViberSubscribedRequest
 from viberbot.api.viber_requests import ViberUnsubscribedRequest
+from viberbot.api.viber_requests import ViberDeliveredRequest
+
+import json
+
+
+address_api_itilium = os.environ['AddressApiItilium']
+login_itilium = os.environ['LoginItilium']
+password_itilium = os.environ['PasswordItilium']
+auth_token_out = os.environ['AuthToken']
+
+current_thread = {'id': 0}
 
 app = Flask(__name__)
-# сюда нужно вставить инфу со своего бота
+
 viber = Api(BotConfiguration(
-    name='vibersimplebot',
+    name='Itilium-bot',
     avatar='http://site.com/avatar.jpg',
-    auth_token='445da6az1s345z78-dazcczb2542zv51a-e0vc5fva17480im9'
+    auth_token=auth_token_out
 ))
 
-@app.route('/', methods=['POST'])
-def incoming():
-    logger.debug("received request. post data: {0}".format(request.get_data()))
-    # every viber message is signed, you can verify the signature using this method
-    if not viber.verify_signature(request.get_data(), request.headers.get('X-Viber-Content-Signature')):
-        return Response(status=403)
 
-    # this library supplies a simple way to receive a request object
-    viber_request = viber.parse_request(request.get_data())
 
-    if isinstance(viber_request, ViberMessageRequest):
-        message = viber_request.message
-        # lets echo back
-        viber.send_messages(viber_request.sender.id, [
-            message
-        ])
-    elif isinstance(viber_request, ViberSubscribedRequest):
-        viber.send_messages(viber_request.get_user.id, [
-            TextMessage(text="thanks for subscribing!")
-        ])
-    elif isinstance(viber_request, ViberFailedRequest):
-        logger.warn("client failed receiving message. failure: {0}".format(viber_request))
-
-    return Response(status=200)
-
-@app.route('/SetWe',  methods=['GET'])
+@app.route('/',  methods=['GET'])
 def IncomingGet():
-    try:
-        viber.unset_webhook()
-        viber.set_webhook(request.url)
-        return "Регистрация бота прошла успешно"
-    except Exception as e:
-        return e
-    finally:
-        return "All bad"
-@app.route('/',  methods=['POST'])
-def IncomingPOST():
-        return "Регистрация бота прошла успешно"
+            return "Регистрация бота прошла успешно"
+
+
+
