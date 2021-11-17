@@ -14,11 +14,11 @@ from viberbot.api.viber_requests import ViberUnsubscribedRequest
 app = Flask(__name__)
 # сюда нужно вставить инфу со своего бота
 viber = Api(BotConfiguration(
-    name='PythonSampleBot',
+    name='vibersimplebot',
     avatar='http://site.com/avatar.jpg',
     auth_token='445da6az1s345z78-dazcczb2542zv51a-e0vc5fva17480im9'
 ))
-
+viber.set_webhook('https://vibersimplebot.herokuapp.com/')
 
 @app.route('/', methods=['POST'])
 def incoming():
@@ -44,3 +44,5 @@ def incoming():
         logger.warn("client failed receiving message. failure: {0}".format(viber_request))
 
     return Response(status=200)
+
+
