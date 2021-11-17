@@ -52,4 +52,5 @@ def IncomingGet():
         return "Регистрация бота прошла успешно"
     except Exception as e:
         return e
-
+    finally:
+        return "All bad"
