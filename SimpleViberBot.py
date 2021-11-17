@@ -44,7 +44,7 @@ def incoming():
 
     return Response(status=200)
 
-@app.route('/',  methods=['GET'])
+@app.route('/SetWe',  methods=['GET'])
 def IncomingGet():
     try:
         viber.unset_webhook()
