@@ -1,1 +1,1 @@
-web: gunicorn -b 0.0.0.0:$PORT viber:app
+web: gunicorn -b 0.0.0.0:$PORT SimpleViberBot:app
