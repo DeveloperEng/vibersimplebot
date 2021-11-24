@@ -38,5 +38,8 @@ def setWebHook():
                ))
     address = request.url.replace("/SetWebHook", "")
  #  viber.unset_webhook()
- #  viber.set_webhook(address)
+    try:
+        viber.set_webhook(address)
+    except Exception as e:
+        return "Failed" + e
     return "Success" + str(address) + "" + str(auth_key)
