@@ -29,17 +29,17 @@ app = Flask(__name__)
 #    auth_token=auth_key
 #))
 
-@app.route('/SetWebHook', methods=['GET'])
+@app.route('/', methods=['GET'])
 def setWebHook():
     viber = Api(BotConfiguration(
                 name='SimpleViberBotItil',
                 avatar='http://site.com/avatar.jpg',
                 auth_token=auth_key
                ))
-    address = request.url.replace("/SetWebHook", "")
+ # address = request.url.replace("/SetWebHook", "")
  #  viber.unset_webhook()
     try:
-        viber.set_webhook(address)
+        viber.set_webhook(requset.url)
     except Exception as e:
         return "Failed" + str(e) + str(e.args)
-    return "Success" + str(address) + "" + str(auth_key)
+    return "Success" + str(request.url) + "" + str(auth_key)
