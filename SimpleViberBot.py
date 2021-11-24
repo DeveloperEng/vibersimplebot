@@ -18,11 +18,11 @@ viber = Api(BotConfiguration(
 
 @app.route('/SetWebHook', methods=['GET'])
 def setWebHook():
-    viber = Api(BotConfiguration(
-                name='SimpleViberBot-bot',
-                avatar='http://site.com/avatar.jpg',
-                auth_token=auth_key
-                ))
-            viber.unset_webhook()
-            viber.set_webhook(request.url)
+ #   viber = Api(BotConfiguration(
+ #               name='SimpleViberBot-bot',
+ #               avatar='http://site.com/avatar.jpg',
+ #               auth_token=auth_key
+ #               ))
+ #           viber.unset_webhook()
+ #           viber.set_webhook(request.url)
     return "Success" + str(request.url)
