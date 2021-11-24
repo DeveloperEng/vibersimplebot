@@ -29,8 +29,7 @@ viber = Api(BotConfiguration(
     avatar='http://site.com/avatar.jpg',
     auth_token=auth_key
 ))
-print("Yes")
-#viber.set_webhook(request.url)
+
 @app.route('/', methods=['GET'])
 def setWebHook():
     viber = Api(BotConfiguration(
