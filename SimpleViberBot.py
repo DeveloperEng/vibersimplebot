@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 
 
-@app.route('/setWebHook', methods=['GET'])
+@app.route('/', methods=['GET'])
 def setWebHook():
 
     return "Success" + str(request.url)
