@@ -30,7 +30,7 @@ viber = Api(BotConfiguration(
     auth_token=auth_key
 ))
 
-@app.route('/', methods=['GET'])
+@app.route('/SetWebHook', methods=['GET'])
 def setWebHook():
  #   viber = Api(BotConfiguration(
  #               name='SimpleViberBotItil',
