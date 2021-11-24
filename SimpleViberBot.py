@@ -31,9 +31,9 @@ app = Flask(__name__)
 
 @app.route('/SetWebHook', methods=['GET'])
 def setWebHook():
-    viber = Api(BotConfiguration(
-                name='SimpleViberBotItil',
-                avatar='http://site.com/avatar.jpg',
-                auth_token=auth_key
-               ))
+ #   viber = Api(BotConfiguration(
+ #               name='SimpleViberBotItil',
+ #               avatar='http://site.com/avatar.jpg',
+ #               auth_token=auth_key
+ #              ))
    return "Success" + str(request.url)  + str(auth_key)
