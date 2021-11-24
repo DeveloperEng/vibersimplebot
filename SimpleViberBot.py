@@ -36,6 +36,7 @@ def setWebHook():
                 avatar='http://site.com/avatar.jpg',
                 auth_token=auth_key
                ))
- #           viber.unset_webhook()
- #           viber.set_webhook(request.url)
+    address = request.url.replace("/SetWebHook", "")
+ #  viber.unset_webhook()
+ #  viber.set_webhook(request.url)
     return "Success" + str(request.url)
