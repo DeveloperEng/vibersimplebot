@@ -45,6 +45,6 @@ def setWebHook():
         return "Failed" + str(e) + str(e.args[0]) + "///"
    return "Success" + str(request.url) + "" + str(auth_key)
 
-@app.route('/', methods=['POST'])
-def incoming():
-    return Response(status=200)
+#@app.route('/', methods=['POST'])
+#def incoming():
+#    return Response(status=200)
