@@ -40,8 +40,8 @@ def setWebHook():
    try:
        viber.set_webhook(request.url)
    except Exception as e:
-       return "Failed" + str(e.args)
-    return "Success" + str(request.url)  + str(auth_key)
+       return "Failed" + str(e)
+    #return "Success" + str(request.url)  + str(auth_key)
 
 @app.route('/', methods=['POST'])
 def incoming():
