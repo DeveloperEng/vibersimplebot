@@ -30,17 +30,18 @@ viber = Api(BotConfiguration(
     auth_token=auth_key
 ))
 
-@app.route('/', methods=['GET'])
-def setWebHook():
+viber.set_webhook(request.url)
+#@app.route('/', methods=['GET'])
+#def setWebHook():
  #   viber = Api(BotConfiguration(
  #               name='SimpleViberBotItil',
  #               avatar='http://site.com/avatar.jpg',
  #               auth_token=auth_key
  #              ))
-   try:
-       viber.set_webhook(request.url)
-   except Exception as e:
-       return "Failed" + str(e)
+ #  try:
+ # viber.set_webhook(request.url)
+  # except Exception as e:
+   #    return "Failed" + str(e)
     #return "Success" + str(request.url)  + str(auth_key)
 
 @app.route('/', methods=['POST'])
