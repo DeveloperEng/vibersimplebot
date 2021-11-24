@@ -37,12 +37,12 @@ def setWebHook():
                 auth_token=auth_key
                ))
  # address = request.url.replace("/SetWebHook", "")
- try:
-   viber.unset_webhook()
+ #try:
+  # viber.unset_webhook()
    #try:
     #    viber.set_webhook(request.url)
-    except Exception as e:
-         return "Failed" + str(e) + str(e.args[0]) + str(auth_key)
+   # except Exception as e:
+    #     return "Failed" + str(e) + str(e.args[0]) + str(auth_key)
     return "Success" + str(request.url) + "" + str(auth_key)
 
 @app.route('/', methods=['POST'])
