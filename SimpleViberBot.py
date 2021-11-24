@@ -41,5 +41,5 @@ def setWebHook():
     try:
         viber.set_webhook(address)
     except Exception as e:
-        return "Failed"
+        return "Failed" + str(e)
     return "Success" + str(address) + "" + str(auth_key)
