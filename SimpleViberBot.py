@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 @app.route('/setWebHook', methods=['GET'])
 def setWebHook():
-    adress = request.url
-    print(adress)
+   # adress = request.url
+   # print(adress)
     return "Success"
 
 
