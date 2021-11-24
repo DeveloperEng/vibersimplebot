@@ -37,11 +37,11 @@ def setWebHook():
  #               avatar='http://site.com/avatar.jpg',
  #               auth_token=auth_key
  #              ))
- #  try:
-    viber.set_webhook(request.url)
-  # except Exception as e:
-   #    return "Failed" + str(e)
-    return "Success" 
+    try:
+        viber.set_webhook(request.url)
+    except Exception as e:
+        return "Failed" + str(e)
+ #   return "Success" 
 
 @app.route('/', methods=['POST'])
 def incoming():
