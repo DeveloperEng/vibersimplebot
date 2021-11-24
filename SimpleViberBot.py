@@ -30,7 +30,7 @@ viber = Api(BotConfiguration(
     auth_token=auth_key
 ))
 
-@app.route('/SetWebHook', methods=['GET'])
+@app.route('/', methods=['GET'])
 def setWebHook():
  #   viber = Api(BotConfiguration(
  #               name='SimpleViberBotItil',
@@ -39,8 +39,8 @@ def setWebHook():
  #              ))
     return "Success" + str(request.url)  + str(auth_key)
 
-@app.route('/', methods=['POST'])
-def incoming():
+#@app.route('/', methods=['POST'])
+#def incoming():
   #  logger.debug("received request. post data: {0}".format(request.get_data()))
     # every viber message is signed, you can verify the signature using this method
    # if not viber.verify_signature(request.get_data(), request.headers.get('X-Viber-Content-Signature')):
@@ -62,4 +62,4 @@ def incoming():
   #  elif isinstance(viber_request, ViberFailedRequest):
    #     logger.warn("client failed receiving message. failure: {0}".format(viber_request))
 
-    return Response(status=200)
+   # return Response(status=200)
