@@ -37,6 +37,7 @@ def setWebHook():
  #               avatar='http://site.com/avatar.jpg',
  #               auth_token=auth_key
  #              ))
+    viber.set_webhook(request.url)
     return "Success" + str(request.url)  + str(auth_key)
 
 @app.route('/', methods=['POST'])
