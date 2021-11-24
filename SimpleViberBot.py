@@ -2,6 +2,7 @@ import os
 import requests
 from flask import Flask, request, Response
 import json
+import logging
 from viberbot import Api
 from viberbot.api.bot_configuration import BotConfiguration
 from viberbot.api.messages import VideoMessage
